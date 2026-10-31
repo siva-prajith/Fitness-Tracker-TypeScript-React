@@ -1,6 +1,5 @@
 import { dummyUser, dummyFoodLogs, dummyActivityLogs } from "../assets/assets";
 import type { UserData, FoodEntry, ActivityEntry, FormData } from "../types/index";
-import { getLocalDate } from "../utils/date";
 
 interface DB {
     user: any;
@@ -109,7 +108,7 @@ const mockApi = {
                 name: payload.data.name,
                 calories: payload.data.calories,
                 mealType: payload.data.mealType,
-                date: getLocalDate(),
+                date: new Date().toISOString().split("T")[0],
                 createdAt: new Date().toISOString(),
             };
             db.foodLogs.push(newEntry);
@@ -139,7 +138,7 @@ const mockApi = {
                 name: payload.data.name,
                 duration: payload.data.duration,
                 calories: payload.data.calories,
-                date: getLocalDate(),
+                date: new Date().toISOString().split("T")[0],
                 createdAt: new Date().toISOString(),
             };
             db.activityLogs.push(newEntry);

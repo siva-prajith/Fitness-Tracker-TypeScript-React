@@ -24,7 +24,7 @@ export default function Input({ label, type = 'text', value, onChange, placehold
             <input
                 type={type}
                 value={value}
-                onChange={(e) => onChange(type === 'number' && e.target.value !== '' ? parseFloat(e.target.value) : e.target.value)}
+                onChange={(e) => onChange(type === 'number' ? parseFloat(e.target.value) : e.target.value)}
                 placeholder={placeholder}
                 min={min}
                 max={max}

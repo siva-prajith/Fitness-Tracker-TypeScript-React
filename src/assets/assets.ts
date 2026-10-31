@@ -1,6 +1,5 @@
 import { CoffeeIcon, CookieIcon, MoonIcon, SunIcon } from "lucide-react";
 import type { UserData, FoodEntry, ActivityEntry } from "../types";
-import { getLocalDate } from "../utils/date";
 
 export const dummyUser: UserData & { id: string; email: string; username: string } = {
     id: "user_123",
@@ -23,7 +22,7 @@ export const dummyFoodLogs: FoodEntry[] = [
         name: "Oatmeal with Blueberries",
         calories: 300,
         mealType: "breakfast",
-        date: getLocalDate(),
+        date: new Date().toISOString().split("T")[0],
         createdAt: new Date().toISOString(),
     },
     {
@@ -32,7 +31,7 @@ export const dummyFoodLogs: FoodEntry[] = [
         name: "Grilled Chicken Salad",
         calories: 450,
         mealType: "lunch",
-        date: getLocalDate(),
+        date: new Date().toISOString().split("T")[0],
         createdAt: new Date().toISOString(),
     },
 ];
@@ -44,7 +43,7 @@ export const dummyActivityLogs: ActivityEntry[] = [
         name: "Morning Run",
         duration: 30,
         calories: 300,
-        date: getLocalDate(),
+        date: new Date().toISOString().split("T")[0],
         createdAt: new Date().toISOString(),
     },
 ];
