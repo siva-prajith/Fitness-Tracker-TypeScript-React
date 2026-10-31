@@ -1,5 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, CartesianGrid } from 'recharts';
 import { useAppContext } from '../context/AppContext';
+import { getLocalDate } from '../utils/date';
 
 const CaloriesChart = () => {
 
@@ -12,11 +13,11 @@ const CaloriesChart = () => {
         for (let i = 6; i >= 0; i--) {
             const date = new Date(today);
             date.setDate(today.getDate() - i);
-            const dateString = date.toISOString().split('T')[0];
+            const dateString = getLocalDate(date);
             const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
 
-            const dailyFood = allFoodLogs.filter(log => log.createdAt?.split('T')[0] === dateString);
-            const dailyActivity = allActivityLogs.filter(log => log.createdAt?.split('T')[0] === dateString);
+            const dailyFood = allFoodLogs.filter(log => log.date === dateString);
+            const dailyActivity = allActivityLogs.filter(log => log.date === dateString);
 
             const intake = dailyFood.reduce((sum, item) => sum + item.calories, 0);
             const burn = dailyActivity.reduce((sum, item) => sum + (item.calories || 0), 0);
