@@ -21,6 +21,8 @@ export type Credentials = {
     password: string;
 };
 
+export type AuthMode = 'login' | 'sign up';
+
 // User Form Data
 export interface UserData {
     name: string;
