@@ -3,6 +3,7 @@ import { useEffect, useState, type SubmitEvent } from "react"
 import type { AuthMode } from "../types";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
+import { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const [state, setState] = useState<AuthMode>('login');
@@ -39,7 +40,9 @@ const Login = () => {
   }, [user, navigate])
 
   return (
-    <main className="login-page-container">
+    <>
+    <Toaster/>
+      <main className="login-page-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2 className="text-3xl font-medium text-gray-900 dark:text-white">
           {state === 'login' ? "Sign In" : "Sign Up"}
@@ -109,6 +112,8 @@ const Login = () => {
         )}
       </form>
     </main>
+    </>
+  
   )
 }
 

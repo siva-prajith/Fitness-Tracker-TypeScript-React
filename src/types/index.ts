@@ -1,3 +1,5 @@
+import type { LucideIcon } from "lucide-react";
+
 // User
 export type User = {
     id: string;
@@ -105,3 +107,9 @@ export const initialState: AppContextType = {
     allActivityLogs: [],
     setAllActivityLogs: () => {},
 };
+
+export interface NavBarItems {
+    path: string;
+    label: string;
+    icon: LucideIcon;
+}

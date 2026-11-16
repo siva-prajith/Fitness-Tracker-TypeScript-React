@@ -8,7 +8,8 @@ import { useAppContext } from "./context/AppContext"
 import Login from "./pages/Login"
 import Loading from "./components/ui/Loading"
 import Onboarding from "./pages/Onboarding"
-import ThemeToggle from "./components/ui/ThemeToggle"
+// import ThemeToggle from "./components/ui/ThemeToggle"
+import { Toaster } from "react-hot-toast"
 
 const App = () => {
   const { user, isUserFetched, onboardingCompleted } = useAppContext();
@@ -16,7 +17,7 @@ const App = () => {
   if (!user) {
     return (
       <>
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
         {isUserFetched ? <Login /> : <Loading />}
       </>
     )
@@ -25,14 +26,15 @@ const App = () => {
   if (!onboardingCompleted) {
     return (
       <>
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
         <Onboarding />
       </>
     )
   }
   return (
     <>
-      <ThemeToggle />
+      {/* <ThemeToggle /> */}
+      <Toaster/>
       <Routes>
 
         <Route path="/" element={<Layout />}>
